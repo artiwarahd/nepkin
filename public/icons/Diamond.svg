@@ -1,0 +1,6 @@
+<svg id="Diamond" xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18">
+  <g id="Polygon_15" data-name="Polygon 15" transform="translate(16 18) rotate(180)" fill="none" stroke-linecap="round" stroke-linejoin="bevel">
+    <path d="M8,0l8,9L8,18,0,9Z" stroke="none"/>
+    <path d="M 8 2.25779914855957 L 2.006932258605957 9 L 8 15.74220085144043 L 13.99306774139404 9 L 8 2.25779914855957 M 8 0 L 16 9 L 8 18 L 0 9 L 8 0 Z" stroke="none" fill="#08264a"/>
+  </g>
+</svg>
