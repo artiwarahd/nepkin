@@ -10,7 +10,7 @@ export const loadFromBlob = async (blob: any) => {
     let appState = defaultAppState;
     try {
       const data = JSON.parse(contents);
-      if (data.type !== "excalidraw") {
+      if (data.type !== "nepkin") {
         throw new Error(t("alerts.couldNotLoadInvalidFile"));
       }
       elements = data.elements || [];

@@ -11,7 +11,7 @@ export const serializeAsJSON = (
 ): string =>
   JSON.stringify(
     {
-      type: "excalidraw",
+      type: "nepkin",
       version: 2,
       source: window.location.origin,
       elements: elements.filter((element) => !element.isDeleted),
@@ -30,13 +30,13 @@ export const saveAsJSON = async (
   const blob = new Blob([serialized], {
     type: "application/json",
   });
-  const name = `${appState.name}.excalidraw`;
+  const name = `${appState.name}.nepkin`;
   (window as any).handle = await fileSave(
     blob,
     {
       fileName: name,
-      description: "Excalidraw file",
-      extensions: ["excalidraw"],
+      description: "Nepkin file",
+      extensions: ["nepkin"],
     },
     fileHandle || null,
   );
@@ -44,8 +44,8 @@ export const saveAsJSON = async (
 
 export const loadFromJSON = async () => {
   const blob = await fileOpen({
-    description: "Excalidraw files",
-    extensions: ["json", "excalidraw"],
+    description: "Nepkin files",
+    extensions: ["json", "nepkin"],
     mimeTypes: ["application/json"],
   });
   return loadFromBlob(blob);

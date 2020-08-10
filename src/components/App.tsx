@@ -3186,7 +3186,7 @@ class App extends React.Component<ExcalidrawProps, AppState> {
 
   private handleCanvasOnDrop = (event: React.DragEvent<HTMLCanvasElement>) => {
     const libraryShapes = event.dataTransfer.getData(
-      "application/vnd.excalidraw.json",
+      "application/vnd.nepkin.json",
     );
     if (libraryShapes !== "") {
       this.addElementsFromPasteOrLibrary(
@@ -3198,10 +3198,7 @@ class App extends React.Component<ExcalidrawProps, AppState> {
     }
 
     const file = event.dataTransfer?.files[0];
-    if (
-      file?.type === "application/json" ||
-      file?.name.endsWith(".excalidraw")
-    ) {
+    if (file?.type === "application/json" || file?.name.endsWith(".nepkin")) {
       this.setState({ isLoading: true });
       loadFromBlob(file)
         .then(({ elements, appState }) =>

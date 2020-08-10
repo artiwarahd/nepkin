@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 #### Clone the repo
 
 ```sh
-git clone git@gitlab.iwa.fi:teammeet/teamdraw.git
+git clone git@gitlab.iwa.fi:teammeet/nepkin.git
 ```
 
 #### Commands
@@ -31,15 +31,7 @@ git clone git@gitlab.iwa.fi:teammeet/teamdraw.git
 | `npm run test:update` | Update test snapshots             |
 | `npm run test:code`   | Test for formatting with Prettier |
 
-#### Docker Compose
-
-You can use docker-compose to work on teamdraw locally if you don't want to setup a Node.js env.
-
-```sh
-docker-compose up --build -d
-```
-
-## Teamdraw is built using these awesome tools
+## Nepkin is built using these awesome tools
 
 - [React](https://reactjs.org)
 - [Rough.js](https://roughjs.com)
@@ -48,12 +40,12 @@ docker-compose up --build -d
 ## Development Server
 
 ```sh
-ssh -v ubuntu@10.200.200.127
+ssh -v ubuntu@10.200.200.51
 ```
 
 ### EC2 Instance
 
-Private IP: 10.200.200.127
+Private IP: 10.200.200.51
 
 Public IP: 13.49.113.99
 
@@ -61,20 +53,32 @@ Public IP: 13.49.113.99
 
 ```mermaid
 graph LR
-A[Users] --> B[Nginx 80]
-B --> C[Apache 8080]
-B --> D[Nextcloud]
-B --> E[Teamdraw]
-B --> F[Teamdraw-room]
+U((User))
+N3000(Nginx 3000)
+N4000(Nginx 4000)
+N5000(Nginx 5000)
+NK[Nepkin]
+NR[nepkin-room]
+NJ[nepkin-json]
+
+U --> N3000
+N3000 --> NK
+NK -- pub/sub --> NR
+NR --- N4000
+NK -- encrypt/decrypt --> NJ
+NJ --- N5000
+
+
+style NK fill:#9f6
 ```
 
-### Teamdraw-room dev server (Websocket server)
+### nepkin-room dev server (Websocket server)
 
-https://teamdraw-room.herokuapp.com
+https://nepkin-room.herokuapp.com
 
 ### Nextcloud dev server
 
-http://13.49.113.99/nextcloud/index.php
+http://13.49.113.99
 
 ## Deployment
 
